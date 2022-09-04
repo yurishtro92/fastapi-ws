@@ -8,8 +8,16 @@
             <input type="text" id="messageText" autocomplete="off"/>
             <button>Send</button>
         </form>
-        <ol id='messages'>
-        </ol>
+        <style>
+       .output {
+        color: red; /* Цвет символа */
+        font-size: 200%; /* Размер шрифта */
+       }
+       p {
+        color: rgb(49, 151, 116); /* Цвет текста */
+       }
+        </style>
+        <span class="output"><b id='messages'></span>
         <script>
             var ws = new WebSocket("ws://localhost:8000/ws");
             ws.onmessage = function(event) {

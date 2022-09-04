@@ -1,3 +1,4 @@
-fastapi
-uvicorn
-websockets
+websockets~=10.3
+uvicorn~=0.18.3
+fastapi~=0.81.0
+pydantic~=1.10.1
