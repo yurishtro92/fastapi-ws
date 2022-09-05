@@ -18,11 +18,14 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     i = 0
     while True:
+        i += 1
+        message_text = {}
         data = await websocket.receive()
-        data_json = json.dumps(data)
-        if data["text"] != 'end':
-            i += 1
-            await websocket.send_json(str(i) + '. ' + str(json.loads(data_json)['text']))
+        text = data["text"]
+        id = i
+        message_text[id] = text
+        if text != 'end':
+            await websocket.send_json(json.dumps(message_text))
         else:
             await websocket.send_json('End of work, please press F5 to restart')
             return

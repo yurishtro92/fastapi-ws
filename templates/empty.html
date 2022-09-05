@@ -7,16 +7,45 @@
         <form action="" onsubmit="sendMessage(event)">
             <input type="text" id="messageText" autocomplete="off"/>
             <button>Send</button>
+               <script>
+                function fontToRed() {
+                var x = document.getElementById("messages");
+                x.style.color = "red";
+                }
+
+                function fontToGreen() {
+                var x = document.getElementById("messages");
+                x.style.color = "green";
+                }
+
+                function fontToBlue() {
+                var x = document.getElementById("messages");
+                x.style.color = "blue";
+                }
+
+                function ReSize1() {
+                var x = document.getElementById("messages");
+                x.style.fontSize = "50%";
+                }
+
+                function ReSize2() {
+                var x = document.getElementById("messages");
+                x.style.fontSize = "100%";
+                }
+
+                function ReSize3() {
+                var x = document.getElementById("messages");
+                x.style.fontSize = "150%";
+                }
+                </script>
+                <div style="output">
+                <i>Цвет текста: </i>
+                <a href="#font-edit"  onclick="fontToRed()">Red</a> | <a href="#font-edit" onclick="fontToGreen()">Green</a> | <a href="#font-edit" onclick="fontToBlue()">Blue</a>
+                <br>
+                <i>Размер текста: </i>
+                    <a href="#font-edit" onclick="ReSize1()">S</a> | <a href="#font-edit" onclick="ReSize2()">N</a> | <a href="#font-edit" onclick="ReSize3()">B</a>
+                </div>
         </form>
-        <style>
-       .output {
-        color: red; /* Цвет символа */
-        font-size: 200%; /* Размер шрифта */
-       }
-       p {
-        color: rgb(49, 151, 116); /* Цвет текста */
-       }
-        </style>
         <span class="output"><b id='messages'></span>
         <script>
             var ws = new WebSocket("ws://localhost:8000/ws");
@@ -36,3 +65,5 @@
         </script>
     </body>
 </html>
+
+
